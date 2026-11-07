@@ -1,0 +1,56 @@
+/** Suburbs listed on the old FAQ page as places clients come from. */
+
+/** Closest suburbs, shown prominently. */
+export const nearbySuburbs = [
+  "Tapping",
+  "Carramar",
+  "Banksia Grove",
+  "Ashby",
+  "Sinagra",
+  "Wanneroo",
+  "Joondalup",
+  "Burns Beach",
+  "Hocking",
+  "Pearsall",
+  "Kinross",
+  "Currambine",
+  "Clarkson",
+  "Mindarie",
+  "Madeley",
+  "Darch",
+];
+
+/** The full list, shown in a collapsible "All suburbs" panel. */
+export const allSuburbs = Array.from(
+  new Set([
+    "Tapping", "Carramar", "Banksia Grove", "Ashby", "Sinagra", "Wanneroo", "Mariginiup", "Joondalup", "Hocking",
+    "Pearsall", "Woodvale", "Edgewater", "Heathridge", "Currambine", "Kinross", "Burns Beach", "Iluka", "Merriwa",
+    "Clarkson", "Mindarie", "Quinns Rocks", "Neerabup", "Ridgewood", "Beldon", "Ocean Reef", "Connolly",
+    "Tamala Park", "Padbury", "Alkimos", "Jindalee", "Butler", "Yanchep", "Two Rocks", "Eglinton", "Pinjar",
+    "Carabooda", "Nowergup", "Landsdale", "Madeley", "Darch", "Kingsway", "Wangara", "Gnangara",
+    "Alexander Heights", "Koondoola", "Marangaroo", "Warwick", "Greenwood", "Hamersley", "Balga", "Girrawheen",
+    "Westminster", "Nollamara", "North Beach", "Sorrento", "Hillarys", "Kallaroo", "Craigie", "Mullaloo",
+    "Duncraig", "Carine", "Watermans Bay", "Trigg", "Marmion", "Ballajura", "Malaga", "Dianella", "Morley",
+    "Noranda", "Bayswater", "Bedford", "Maylands", "Inglewood", "Mount Lawley", "Yokine", "Tuart Hill",
+    "Osborne Park", "Glendalough", "Balcatta", "Stirling", "Karrinyup", "Gwelup", "Innaloo", "Doubleview",
+    "Scarborough", "Wembley Downs", "City Beach", "Floreat", "Wembley", "West Leederville", "Subiaco",
+    "North Perth", "Leederville", "Perth CBD", "Highgate", "East Perth", "Burswood", "Victoria Park", "Lathlain",
+    "Carlisle", "Belmont", "Rivervale", "Cloverdale", "Redcliffe", "Ascot", "South Perth", "Como", "Kensington",
+    "Manning", "Salter Point", "Waterford", "Wilson", "Bentley", "St James", "East Victoria Park", "Welshpool",
+    "Kewdale", "Forrestfield", "High Wycombe", "Maida Vale", "Kalamunda", "Gooseberry Hill", "Lesmurdie",
+    "Bickley", "Walliston", "Carmel", "Roleystone", "Armadale", "Kelmscott", "Seville Grove", "Byford", "Oakford",
+    "Southern River", "Harrisdale", "Piara Waters", "Canning Vale", "Leeming", "Willetton", "Riverton", "Shelley",
+    "Rossmoyne", "Bateman", "Bull Creek", "Murdoch", "Winthrop", "Booragoon", "Brentwood", "Myaree", "Melville",
+    "Alfred Cove", "Attadale", "Bicton", "Palmyra", "East Fremantle", "Fremantle", "South Fremantle",
+    "Beaconsfield", "Hamilton Hill", "Spearwood", "Coogee", "Munster", "North Coogee", "The Vines", "Ellenbrook",
+    "Aveley", "Henley Brook", "Brabham", "Upper Swan", "Herne Hill", "Baskerville", "Millendon", "West Swan",
+    "Middle Swan", "Stratton", "Jane Brook", "Greenmount", "Swan View", "Darlington", "Glen Forrest",
+    "Mahogany Creek", "Parkerville", "Stoneville", "Mundaring", "Sawyers Valley", "Chidlow", "Gidgegannup",
+    "Rockingham", "Shoalwater", "Safety Bay", "Waikiki", "Warnbro", "Port Kennedy", "Secret Harbour",
+    "Golden Bay", "Singleton", "Karnup", "Baldivis", "Wellard", "Parmelia", "Kwinana", "Orelia", "Medina", "Leda",
+    "Bertram", "Anketell", "Casuarina", "Hope Valley", "Wattleup", "Hammond Park", "Aubin Grove", "Atwell",
+    "Success", "Yangebup", "Beeliar", "Bibra Lake", "North Lake", "Jandakot", "South Lake", "Treeby",
+    "Cockburn Central", "Serpentine", "Mundijong", "Whitby", "Jarrahdale", "Karrakup", "Darling Downs",
+    "Bedfordale", "Mount Richon", "Mount Nasura", "Wungong", "Ashendon",
+  ]),
+);
