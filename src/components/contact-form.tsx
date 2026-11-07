@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useId, useRef, useState } from "react";
+import { useActionState, useEffect, useId, useRef } from "react";
 
 import { sendEnquiry, type ContactState } from "@/app/actions/contact";
 
@@ -10,18 +10,20 @@ const initialState: ContactState = { status: "idle" };
 
 export function ContactForm({ services }: { services: Option[] }) {
   const [state, formAction, pending] = useActionState(sendEnquiry, initialState);
-  const [service, setService] = useState("");
-  const [startedAt, setStartedAt] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const selectRef = useRef<HTMLSelectElement>(null);
+  const startedAtRef = useRef<HTMLInputElement>(null);
   const id = useId();
 
   // Pre-select the service from ?service=… (links from service pages) and start the spam timer.
   useEffect(() => {
     const fromUrl = new URLSearchParams(window.location.search).get("service");
-    if (fromUrl && services.some((s) => s.value === fromUrl)) setService(fromUrl);
-    setStartedAt(String(Date.now()));
+    if (fromUrl && selectRef.current && services.some((s) => s.value === fromUrl)) {
+      selectRef.current.value = fromUrl;
+    }
+    if (startedAtRef.current) startedAtRef.current.value = String(Date.now());
   }, [services]);
 
   // Move focus to the result so keyboard and screen-reader users hear what happened.
@@ -91,11 +93,12 @@ export function ContactForm({ services }: { services: Option[] }) {
         </Field>
         <Field label="I'm interested in" htmlFor={`${id}-service`}>
           <select
+            key={v.service ?? ""}
+            ref={selectRef}
             id={`${id}-service`}
             name="service"
-            value={service || v.service || ""}
-            onChange={(e) => setService(e.target.value)}
-            className="input appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23555%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>')] bg-[length:1.25rem] bg-[right_0.875rem_center] bg-no-repeat pr-11"
+            defaultValue={v.service ?? ""}
+            className="input"
           >
             <option value="">Not sure yet</option>
             {services.map((s) => (
@@ -120,7 +123,7 @@ export function ContactForm({ services }: { services: Option[] }) {
         <label htmlFor={`${id}-company`}>Company</label>
         <input id={`${id}-company`} name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
-      <input type="hidden" name="startedAt" value={startedAt} />
+      <input ref={startedAtRef} type="hidden" name="startedAt" defaultValue="" />
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <button type="submit" className="btn btn-primary" aria-disabled={pending} disabled={pending}>
