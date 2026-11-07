@@ -24,6 +24,7 @@ import { breadcrumbJsonLd, jsonLdScript, serviceJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 
 export const ensureStatic = "navigation";
+export const instant = false;
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
